@@ -1,0 +1,38 @@
+
+CREATE TABLESPACE toko
+datafile 'D:\sem 5\paj\toko'
+size 30M;
+
+CREATE USER fadlan_bhahreisy
+IDENTIFIED BY fadlan_bhahreisy
+DEFAULT TABLESPACE toko
+QUOTA 30M ON toko;
+GRANT ALL PRIVILEGES TO fadlan_bhahreisy;
+
+
+
+create table barang
+(
+id_barang INTEGER not null,
+nama_barang VARCHAR2(16),
+harga_barang NUMBER(16),
+constraint PK_barang primary key (id_barang)
+);
+create table pelanggan
+(
+id_pelanggan INTEGER not null,
+nama_pelanggan VARCHAR2(16),
+password VARCHAR2(16),
+constraint PK_pelanggan primary key (id_pelanggan)
+);
+create table transaksi
+(
+id_transaksi INTEGER not null,
+total NUMBER(16),
+bayar NUMBER(16),
+kembali NUMBER(16),
+tanggal DATE,
+id_pelanggan INTEGER,
+constraint PK_transaksi primary key (id_transaksi)
+);
+
